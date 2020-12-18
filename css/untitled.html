@@ -44,7 +44,7 @@
                 </div>
                 <div class="weui-cell__bd">
                     <select class="weui-select" name="gender" id="gender">
-                      <option value="0" selected disabled style="display: none">请选择</option>
+                      <!--<option value="0" selected disabled style="display: none">请选择</option>-->
                         <option value="男">男</option>
                         <option value="女">女</option>
                     </select>
@@ -56,8 +56,8 @@
                 </div>
                 <div class="weui-cell__bd">
                     <select class="weui-select" name="zhiwei" id="zhiwei">
-                      <option value="0" selected disabled style="display: none">请选择</option>
-                        <option value="店经理">店经理</option>
+                      <!-- <option value="0" selected disabled style="display: none">请选择</option> -->
+                        <option value="店长">店经理</option>
                         <option value="营业员">营业员</option>
                         <option value="技能工">技能工</option>
                     </select>
@@ -125,7 +125,7 @@
     <div class="weui-form__extra-area">
       <div class="weui-footer">
         <p class="weui-footer__links">
-          <a href="javascript:" class="weui-footer__link">薪酬计算</a>
+          <a href="javascript:" class="weui-footer__link">薪资计算</a>
         </p>
         <p class="weui-footer__text">Copyright © 2020-2029</p>
       </div>
@@ -267,13 +267,13 @@
 
               xindeng = 2;
             }
-            if(xueli == 2 && (xiangguan == 2 && buxiangguan <= 2 || xiangguan <= 2 && buxiangguan == 2)) {
+            if(xueli == 2 && (xiangguan == 2 && buxiangguan == 1 || xiangguan == 1 && buxiangguan == 2)) {
               //ABC都完全匹配
               gongzi = 2130;
 
               xindeng = 3;
             }
-            if(xueli == 2 && (xiangguan > 2 || buxiangguan > 2) || xueli > 2 && (xiangguan == 2 && buxiangguan <= 2 || xiangguan <= 2 && buxiangguan == 2)) {
+            if(xueli == 2 && (xiangguan > 2 || buxiangguan > 2) || xueli > 2 && (xiangguan == 2 && buxiangguan < 2 || xiangguan < 2 && buxiangguan == 2)) {
               //A和BC其中一项匹配 另外一项高于标准
               gongzi = 2210;
               xindeng = 4;
@@ -292,18 +292,18 @@
               gongzi = 2290;
               xindeng = 1;
             }
-            if(xueli < 3 && (xiangguan > 2 || buxiangguan > 2) 
+            if((xueli < 3 && (xiangguan > 2 || buxiangguan > 2) 
               || (xueli > 2 && xiangguan < 3 && buxiangguan < 3)) {
               //A匹配 BC其中一项低于标准
               gongzi = 2370;
               xindeng = 2;
             }
-            if(xueli == 3 && (xiangguan == 3 && buxiangguan <= 3 || xiangguan <= 3 && buxiangguan == 3)) {
+            if(xueli == 3 && (xiangguan == 3 && buxiangguan < 3 || xiangguan < 3 && buxiangguan == 3)) {
               //ABC都完全匹配
               gongzi = 2450;
               xindeng = 3;
             }
-            if(xueli == 3 &&  (xiangguan > 3 || buxiangguan > 3) || xueli > 3 && (xiangguan == 3 && buxiangguan <= 3 || xiangguan <= 3 && buxiangguan == 3)) {
+            if(xueli == 3 &&  (xiangguan > 3 || buxiangguan > 3) || xueli > 3 && (xiangguan == 3 && buxiangguan < 3 || xiangguan < 3 && buxiangguan == 3)) {
               //A和BC其中一项匹配 另外一项高于标准
               gongzi = 2530;
               xindeng = 4;
@@ -322,18 +322,18 @@
               gongzi = 2610;
               xindeng = 1;
             }
-            if(xueli < 4 && (xiangguan > 3 || buxiangguan > 3) 
+            if((xueli < 4 && (xiangguan > 3 || buxiangguan > 3) 
               || (xueli > 3 && xiangguan < 4 && buxiangguan < 4)) {
               //A匹配 BC其中一项低于标准
               gongzi = 2730;
               xindeng = 2;
             }
-            if(xueli == 4 && (xiangguan == 4 && buxiangguan <= 4 || xiangguan <= 4 && buxiangguan == 4)) {
+            if(xueli == 4 && (xiangguan == 4 && buxiangguan < 4 || xiangguan < 4 && buxiangguan == 4)) {
               //ABC都完全匹配
               gongzi = 2850;
               xindeng = 3;
             }
-            if(xueli == 4 &&  (xiangguan > 4 || buxiangguan > 4) || xueli > 4 && (xiangguan == 4 && buxiangguan <= 4 || xiangguan <= 4 && buxiangguan == 4)) {
+            if(xueli == 4 &&  (xiangguan > 4 || buxiangguan > 4) || xueli > 4 && (xiangguan == 4 && buxiangguan < 4 || xiangguan < 4 && buxiangguan == 4)) {
               //A和BC其中一项匹配 另外一项高于标准
               gongzi = 2970;
               xindeng = 4;
@@ -348,7 +348,6 @@
           }
            break;
         case "营业员":
-
           if(nenglipinggu == 2) {
             //合格
             if(xueli == 1 && xiangguan == 1 &&  buxiangguan < 3) {
@@ -387,23 +386,23 @@
               gongzi = 1850;
               xindeng = 1;
             }
-            if((xueli < 2 && (xiangguan > 2 || buxiangguan > 3)) 
-              || (xueli > 1 && xiangguan < 2 &&  buxiangguan < 3)) {
+            if((xueli < 2 && (xiangguan > 3 || buxiangguan > 4)) 
+              || (xueli > 2 && xiangguan < 3 &&  buxiangguan < 4)) {
               //A匹配 BC其中一项低于标准
               gongzi = 1850;
               xindeng = 2;
             }
-            if(xueli == 2 && (xiangguan == 3 && buxiangguan <= 4 || xiangguan <= 3 && buxiangguan == 4)) {
+            if(xueli == 2 && (xiangguan == 3 && buxiangguan < 4 || xiangguan < 3 && buxiangguan == 4)) {
               //ABC都完全匹配
               gongzi = 1900;
               xindeng = 3;
             }
-            if(xueli == 2 && (xiangguan > 3 || buxiangguan > 4) || xueli > 2 && (xiangguan == 3 && buxiangguan <= 4 || xiangguan <= 3 && buxiangguan == 4)) {
+            if(xueli == 2 && (buxiangguan > 3 || buxiangguan > 4) || xueli > 2 && (xiangguan == 3 && buxiangguan < 4 || xiangguan < 3 && buxiangguan == 4)) {
               //A和BC其中一项匹配 另外一项高于标准
               gongzi = 1950;
               xindeng = 4;
             }
-            if(xueli > 2 && ( xiangguan > 3  || buxiangguan > 4) ) {
+            if(xueli > 2 && ( buxiangguan > 3  || buxiangguan > 4) ) {
               //A匹配 BC都高于标准
               gongzi = 2000;
               xindeng = 5;
@@ -417,23 +416,23 @@
               gongzi = 2000;
               xindeng = 1;
             }
-            if((xueli < 3 && (xiangguan > 3 || buxiangguan > 4)) 
-              || (xueli > 2 && xiangguan < 4 &&  buxiangguan < 5)) {
+            if((xueli < 3 && (xiangguan > 4 || buxiangguan > 5)) 
+              || (xueli > 3 && xiangguan < 4 &&  buxiangguan < 5)) {
               //A匹配 BC其中一项低于标准
               gongzi = 2050;
               xindeng = 2;
             }
-            if(xueli == 3 && (xiangguan == 4 && buxiangguan <= 5 || xiangguan <= 4 && buxiangguan == 5)) {
+            if(xueli == 3 && (xiangguan == 4 && buxiangguan < 5 || xiangguan < 4 && buxiangguan == 5)) {
               //ABC都完全匹配
               gongzi = 2130;
               xindeng = 3;
             }
-            if(xueli == 3 && (xiangguan > 4 || buxiangguan > 5) || xueli > 3 && (xiangguan == 4 && buxiangguan <= 5 || xiangguan <= 4 && buxiangguan == 5)) {
+            if(xueli == 3 && (buxiangguan > 4 || buxiangguan > 5) || xueli > 3 && (xiangguan == 4 && buxiangguan < 5 || xiangguan < 4 && buxiangguan == 5)) {
               //A和BC其中一项匹配 另外一项高于标准
               gongzi = 2210;
               xindeng = 4;
             }
-            if(xueli > 3 && ( xiangguan > 4  || buxiangguan > 5) ) {
+            if(xueli > 3 && ( buxiangguan > 4  || buxiangguan > 5) ) {
               //A匹配 BC都高于标准
               gongzi = 2290;
               xindeng = 5;
@@ -481,23 +480,23 @@
               gongzi = 1950;
               xindeng = 1;
             }
-            if((xueli < 2 && (xiangguan > 2 || buxiangguan > 3)) 
-              || (xueli > 1 && xiangguan < 2 &&  buxiangguan < 3)) {
+            if((xueli < 2 && (xiangguan > 3 || buxiangguan > 4)) 
+              || (xueli > 2 && xiangguan < 3 &&  buxiangguan < 4)) {
               //A匹配 BC其中一项低于标准
               gongzi = 1950;
               xindeng = 2;
             }
-            if(xueli == 2 && (xiangguan == 3 && buxiangguan <= 4 || xiangguan <= 3 && buxiangguan == 4)) {
+            if(xueli == 2 && (xiangguan == 3 && buxiangguan < 4 || xiangguan < 3 && buxiangguan == 4)) {
               //ABC都完全匹配
               gongzi = 2000;
               xindeng = 3;
             }
-            if(xueli == 2 && (xiangguan > 3 || buxiangguan > 4) || xueli > 2 && (xiangguan == 3 && buxiangguan <= 4 || xiangguan <= 3 && buxiangguan == 4)) {
+            if(xueli == 2 && (buxiangguan > 3 || buxiangguan > 4) || xueli > 2 && (xiangguan == 3 && buxiangguan < 4 || xiangguan < 3 && buxiangguan == 4)) {
               //A和BC其中一项匹配 另外一项高于标准
               gongzi = 2050;
               xindeng = 4;
             }
-            if(xueli > 2 && ( xiangguan > 3  || buxiangguan > 4) ) {
+            if(xueli > 2 && ( buxiangguan > 3  || buxiangguan > 4) ) {
               //A匹配 BC都高于标准
               gongzi = 2130;
               xindeng = 5;
@@ -511,23 +510,23 @@
               gongzi = 2130;
               xindeng = 1;
             }
-            if((xueli < 3 && (xiangguan > 3 || buxiangguan > 4)) 
-              || (xueli > 2 && xiangguan < 4 &&  buxiangguan < 5)) {
+            if((xueli < 3 && (xiangguan > 4 || buxiangguan > 5)) 
+              || (xueli > 3 && xiangguan < 4 &&  buxiangguan < 5)) {
               //A匹配 BC其中一项低于标准
               gongzi = 2210;
               xindeng = 2;
             }
-            if(xueli == 3 && (xiangguan == 4 && buxiangguan <= 5 || xiangguan <= 4 && buxiangguan == 5)) {
+            if(xueli == 3 && (xiangguan == 4 && buxiangguan < 5 || xiangguan < 4 && buxiangguan == 5)) {
               //ABC都完全匹配
               gongzi = 2290;
               xindeng = 3;
             }
-            if(xueli == 3 && (xiangguan > 4 || buxiangguan > 5) || xueli > 3 && (xiangguan == 4 && buxiangguan <= 5 || xiangguan <= 4 && buxiangguan == 5)) {
+            if(xueli == 3 && (buxiangguan > 4 || buxiangguan > 5) || xueli > 3 && (xiangguan == 4 && buxiangguan < 5 || xiangguan < 4 && buxiangguan == 5)) {
               //A和BC其中一项匹配 另外一项高于标准
               gongzi = 2370;
               xindeng = 4;
             }
-            if(xueli > 3 && ( xiangguan > 4  || buxiangguan > 5) ) {
+            if(xueli > 3 && ( buxiangguan > 4  || buxiangguan > 5) ) {
               //A匹配 BC都高于标准
               gongzi = 2450;
               xindeng = 5;
