@@ -35,7 +35,7 @@
           <div class="weui-cell weui-cell_active">
             <div class="weui-cell__hd"><label class="weui-label">面试者联系电话</label></div>
             <div class="weui-cell__bd">
-                <input id="js_phone" class="weui-input" placeholder="填写面试者的电话号码" type="number" pattern="[0-9]*" />
+                <input id="js_employee_phone" class="weui-input" placeholder="填写面试者的电话号码" type="number" pattern="[0-9]*" />
             </div>
           </div>
           <div class="weui-cell weui-cell_active weui-cell_select weui-cell_select-after">
@@ -87,7 +87,8 @@
                         <option value="1">高中以下</option>
                         <option value="2">高中</option>
                         <option value="3">大专</option>
-                        <option value="4">本科及以上</option>
+                        <option value="4">本科</option>
+                        <option value="5">本科以上</option>
                     </select>
                 </div>
             </div>
@@ -98,10 +99,7 @@
                 <div class="weui-cell__bd">
                     <select class="weui-select" name="xiangguan" id="xiangguan">
                       <option value="0" selected disabled style="display: none">请选择</option>
-                        <option value="1">1年以下</option>
-                        <option value="2">1-2年</option>
-                        <option value="3">2-5年</option>
-                        <option value="4">5年以上</option>
+                        
                     </select>
                 </div>
             </div>
@@ -112,10 +110,7 @@
                 <div class="weui-cell__bd">
                     <select class="weui-select" name="buxiangguan" id="buxiangguan">
                       <option value="0" selected disabled style="display: none">请选择</option>
-                        <option value="1">3年以下</option>
-                        <option value="2">3-4年</option>
-                        <option value="3">4-6年</option>
-                        <option value="4">6年以上</option>
+                        
                     </select>
                 </div>
             </div>
@@ -124,7 +119,7 @@
     </div>
     
     <div class="weui-form__opr-area">
-      <a class="weui-btn weui-btn_primary" href="javascript:" id="showTooltips">计算</a>
+      <a class="weui-btn weui-btn_primary" href="javascript:" id="computeSalary">计算</a>
     </div>
     
     <div class="weui-form__extra-area">
@@ -157,37 +152,43 @@
           $("#xiangguan").append('<option value="1">1年以下</option>');
           $("#xiangguan").append('<option value="2">1-2年</option>');
           $("#xiangguan").append('<option value="3">2-5年</option>');
-          $("#xiangguan").append('<option value="4">5年以上</option>');
+          $("#xiangguan").append('<option value="4">5-7年</option>');
+          $("#xiangguan").append('<option value="5">7年以上</option>');
 
 
           $("#buxiangguan").append('<option value="1">3年以下</option>');
           $("#buxiangguan").append('<option value="2">3-4年</option>');
           $("#buxiangguan").append('<option value="3">4-6年</option>');
-          $("#buxiangguan").append('<option value="4">6年以上</option>');
+          $("#buxiangguan").append('<option value="4">6-8年</option>');
+          $("#buxiangguan").append('<option value="5">8年以上</option>');
           break;
           case "营业员":
           $("#xiangguan").append('<option value="1">1年以下</option>');
           $("#xiangguan").append('<option value="2">1-2年</option>');
           $("#xiangguan").append('<option value="3">2-3年</option>');
-          $("#xiangguan").append('<option value="4">3年以上</option>');
+          $("#xiangguan").append('<option value="4">3-4年</option>');
+          $("#xiangguan").append('<option value="5">4年以上</option>');
 
 
           $("#buxiangguan").append('<option value="1">1年以下</option>');
           $("#buxiangguan").append('<option value="2">1-2年</option>');
           $("#buxiangguan").append('<option value="3">2-3年</option>');
-          $("#buxiangguan").append('<option value="4">3年以上</option>');
+          $("#buxiangguan").append('<option value="4">3-4年</option>');
+          $("#buxiangguan").append('<option value="5">4年以上</option>');
           break;
           case "技能工":
           $("#xiangguan").append('<option value="1">1年以下</option>');
           $("#xiangguan").append('<option value="2">1-2年</option>');
           $("#xiangguan").append('<option value="3">2-3年</option>');
-          $("#xiangguan").append('<option value="4">3年以上</option>');
+          $("#xiangguan").append('<option value="4">3-4年</option>');
+          $("#xiangguan").append('<option value="5">4年以上</option>');
 
 
           $("#buxiangguan").append('<option value="1">1年以下</option>');
           $("#buxiangguan").append('<option value="2">1-2年</option>');
           $("#buxiangguan").append('<option value="3">2-3年</option>');
-          $("#buxiangguan").append('<option value="4">3年以上</option>');
+          $("#buxiangguan").append('<option value="4">3-4年</option>');
+          $("#buxiangguan").append('<option value="5">4年以上</option>');
           break;
         }
 
@@ -201,17 +202,17 @@
 
 
       //提交计算
-      $('#showTooltips').on('click', function(){
+      $('#computeSalary').on('click', function(){
 
-      var gender = $("select[name='gender']").val();
-      var zhiwei = $("select[name='zhiwei']").val();
-      var nenglipinggu = $("select[name='nenglipinggu']").val();
-      var xueli = $("select[name='xueli']").val();
-      var xiangguan = $("select[name='xiangguan']").val();
-      var buxiangguan = $("select[name='buxiangguan']").val();
+      var gender = $('#gender').val();
+      var zhiwei = $('#zhiwei').val();
+      var nenglipinggu = $('#nenglipinggu').val();
+      var xueli = $('#xueli').val();
+      var xiangguan = $('#xiangguan').val();
+      var buxiangguan = $('#buxiangguan').val();
       var js_employee = $('#js_employee').val();
       var js_interviewer = $('#js_interviewer').val();
-      var js_phone = $('#js_phone').val();
+      var js_employee_phone = $('#js_employee_phone').val();
 
 
       if(gender == null) {
@@ -530,7 +531,7 @@
       var showDiv = 
       "<div><div style='text-align: left;padding-left: 10px;'>面试者："+js_employee+"</div>" + 
       "<div><div style='text-align: left;padding-left: 10px;'>性&nbsp;&nbsp;&nbsp;&nbsp;别："+gender+"</div>" + 
-      "<div style='text-align: left;padding-left: 10px;'>电&nbsp;&nbsp;&nbsp;&nbsp;话："+ js_phone + "</div>" + 
+      "<div style='text-align: left;padding-left: 10px;'>电&nbsp;&nbsp;&nbsp;&nbsp;话："+ js_employee_phone + "</div>" + 
       "<div style='text-align: left;padding-left: 10px;'>面试官："+ js_interviewer + "</div>" + 
       "<div style='text-align: left;padding-left: 10px;'>职&nbsp;&nbsp;&nbsp;&nbsp;位："+ zhiwei + "</div>" + 
       "<div style='text-align: left;padding-left: 10px;'>等&nbsp;&nbsp;&nbsp;&nbsp;级："+ dengji + "级</div>"+ 
