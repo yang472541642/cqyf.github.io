@@ -21,21 +21,22 @@
         <div class="weui-form__control-area">
           <div class="weui-cells__group weui-cells__group_form">
             <div class="weui-panel">
-              <div class="weui-panel__hd">基本信息</div>
+              <div class="weui-panel__hd">一、基本信息</div>
               <div class="weui-panel__bd">
                 <div class="weui-cells weui-cells_form">
-                  <div class="weui-cell">
-                    <div class="weui-cell__hd">
-                      <label class="weui-label">面试者</label></div>
-                    <div class="weui-cell__bd">
-                      <input id="js_employee" type="text" class="weui-input" placeholder="填写面试者姓名" /></div>
-                  </div>
                   <div class="weui-cell weui-cell_active">
                     <div class="weui-cell__hd">
                       <label class="weui-label">面试官</label></div>
                     <div class="weui-cell__bd">
                       <input id="js_interviewer" type="text" class="weui-input" placeholder="填写面试官姓名" /></div>
                   </div>
+                  <div class="weui-cell">
+                    <div class="weui-cell__hd">
+                      <label class="weui-label">面试者</label></div>
+                    <div class="weui-cell__bd">
+                      <input id="js_employee" type="text" class="weui-input" placeholder="填写面试者姓名" /></div>
+                  </div>
+                  
                   <div class="weui-cell weui-cell_active">
                     <div class="weui-cell__hd">
                       <label class="weui-label">电话</label></div>
@@ -67,10 +68,13 @@
               </div>
             </div>
             <div class="weui-panel">
+              <div class="weui-panel__hd">二、测评信息</div>
+            <div class="weui-panel__bd">
+            <div class="weui-panel">
               <div class="weui-panel__hd">A、能力评估&技能评估</div>
               <div class="weui-panel__bd">
                 <div class="weui-panel">
-                  <div class="weui-panel__hd">能力评估</div>
+                  <div class="weui-panel__hd">1）能力评估</div>
                   <div class="weui-panel__bd">
                     <div class="weui-cells weui-cells_form">
                       <div class="weui-cell weui-cell_active weui-cell_select weui-cell_select-after">
@@ -107,7 +111,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="weui-panel__hd">技能评估</div>
+                  <div class="weui-panel__hd">2）技能评估</div>
                   <div class="weui-panel__bd">
                     <div class="weui-cells weui-cells_form">
                       <div class="weui-cell weui-cell_active weui-cell_select weui-cell_select-after">
@@ -122,7 +126,8 @@
                       </div>
                     </div>
                   </div>
-                  <div class="weui-panel__hd">此项综合评估结果</div>
+                  <span class="icon icon-18"></span>
+                  <div class="weui-panel__hd"><span class="weui-icon weui-icon-success"></span>此项综合评估结果</div>
                   <div class="weui-panel__bd">
                     <div class="weui-cells weui-cells_form">
                       <div class="weui-cell weui-cell_active  weui-cell_select-after">
@@ -169,7 +174,7 @@
                       <label for="" class="weui-label">相关行业同岗位工作经验</label></div>
                     <div class="weui-cell__bd">
                       <select class="weui-select" name="xiangguan" id="xiangguan">
-                        <!-- <option value="0" selected disabled style="display: none">请选择</option> -->
+                        <option value="0" selected style="display: none">请选择</option>
                       </select>
                     </div>
                   </div>
@@ -178,13 +183,15 @@
                       <label for="" class="weui-label">非相关行业同岗位工作经验</label></div>
                     <div class="weui-cell__bd">
                       <select class="weui-select" name="buxiangguan" id="buxiangguan">
-                        <!-- <option value="0" selected disabled style="display: none">请选择</option> -->
+                        <option value="0" selected style="display: none">请选择</option>
                       </select>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
+          </div>
           </div>
         </div>
       </div>
@@ -237,9 +244,9 @@
         });
 
         $('#zhiwei').change(() =>{
-          $("#xiangguan option").remove();
+          $("#xiangguan option:gt(0)").remove();
 
-          $("#buxiangguan option").remove();
+          $("#buxiangguan option:gt(0)").remove();
 
           $("#js_luojics").addClass("hide");
           emptyPingGuo();
@@ -261,14 +268,14 @@
             break;
 
           case "营业员":
-            $("#xiangguan").append('<option selected value="1">无</option>');
+            $("#xiangguan").append('<option  value="1">无</option>');
             $("#xiangguan").append('<option value="2">1年以下</option>');
             $("#xiangguan").append('<option value="3">1-2年</option>');
             $("#xiangguan").append('<option value="4">2-3年</option>');
             $("#xiangguan").append('<option value="5">3-4年</option>');
             $("#xiangguan").append('<option value="6">4年以上</option>');
 
-            $("#buxiangguan").append('<option selected value="1">无</option>');
+            $("#buxiangguan").append('<option  value="1">无</option>');
             $("#buxiangguan").append('<option value="2">1年以下</option>');
             $("#buxiangguan").append('<option value="3">1-2年</option>');
             $("#buxiangguan").append('<option value="4">2-3年</option>');
@@ -277,14 +284,14 @@
             break;
 
           case "技能工":
-            $("#xiangguan").append('<option selected value="1">无</option>');
+            $("#xiangguan").append('<option  value="1">无</option>');
             $("#xiangguan").append('<option value="2">1年以下</option>');
             $("#xiangguan").append('<option value="3">1-2年</option>');
             $("#xiangguan").append('<option value="4">2-3年</option>');
             $("#xiangguan").append('<option value="5">3-4年</option>');
             $("#xiangguan").append('<option value="6">4年以上</option>');
 
-            $("#buxiangguan").append('<option selected value="1">无</option>');
+            $("#buxiangguan").append('<option  value="1">无</option>');
             $("#buxiangguan").append('<option value="2">1年以下</option>');
             $("#buxiangguan").append('<option value="3">1-2年</option>');
             $("#buxiangguan").append('<option value="4">2-3年</option>');
@@ -415,6 +422,21 @@
           var js_interviewer = $('#js_interviewer').val();
           var js_employee_phone = $('#js_employee_phone').val();
 
+          if (js_employee == '') {
+            weui.alert("请填写面试者姓名", {
+              title: '提示'
+            });
+          }
+          if (js_interviewer == '') {
+            weui.alert("请填写面试官姓名", {
+              title: '提示'
+            });
+          }
+          if (js_employee_phone == '') {
+            weui.alert("请填写面试者联系电话", {
+              title: '提示'
+            });
+          }
           if (gender == null) {
             weui.alert("请选择性别", {
               title: '提示'
@@ -440,15 +462,16 @@
               title: '提示'
             });
           }
-          if (xiangguan == null) {
-            weui.alert("请选择相关行业工作经验", {
+          if ((xiangguan == null || xiangguan == 0) && (buxiangguan == null || buxiangguan == 0)) {
+            weui.alert("相关行业工作经验和非相关行业工作经验,二者必须填一项", {
               title: '提示'
             });
           }
-          if (buxiangguan == null) {
-            weui.alert("请选择非相关行业工作经验", {
-              title: '提示'
-            });
+          if(xiangguan == null) {
+            xiangguan = 1;
+          }
+          if(buxiangguan == null) {
+            buxiangguan = 1;
           }
 
           nenglipinggu = parseInt(nenglipinggu);
@@ -463,12 +486,12 @@
           case "店经理":
             if (nenglipinggu == 2) {
               //合格
-              if (xueli == 1 && (xiangguan == 1 && buxiangguan == 1)) {
+              if (xueli <= 1 && (xiangguan <= 1 && buxiangguan <= 1)) {
                 //A匹配 BC都不匹配
                 gongzi = 2000;
                 xindeng = 1;
               }
-              if ((xueli == 1 && xiangguan > 1 || buxiangguan > 1) || (xueli > 1 && xiangguan == 1 && buxiangguan == 1)) {
+              if ((xueli <= 1 && xiangguan > 1 || buxiangguan > 1) || (xueli > 1 && xiangguan <= 1 && buxiangguan <= 1)) {
                 //A匹配 BC其中一项低于标准
                 gongzi = 2050;
 
@@ -556,23 +579,23 @@
 
             if (nenglipinggu == 2) {
               //合格
-              if (xueli == 1 && xiangguan == 1 && buxiangguan < 3) {
+              if (xueli <= 1 && xiangguan <= 1 && buxiangguan < 3) {
                 //A匹配 BC都不匹配
                 gongzi = 1700;
                 xindeng = 1;
               }
-              if ((xueli == 1 && (xiangguan > 1 || buxiangguan > 2)) || (xueli > 1 && (xiangguan == 1 && buxiangguan < 3))) {
+              if ((xueli <= 1 && (xiangguan > 1 || buxiangguan > 2)) || (xueli > 1 && (xiangguan <= 1 && buxiangguan < 3))) {
                 //A匹配 BC其中一项低于标准
                 gongzi = 1700;
                 xindeng = 2;
               }
-              if (xueli == 2 && buxiangguan == 3 && xiangguan == 1) {
+              if (xueli == 2 && buxiangguan == 3 && xiangguan <= 1) {
                 //ABC都完全匹配
                 gongzi = 1750;
 
                 xindeng = 3;
               }
-              if (xueli == 2 && (buxiangguan > 3 || xiangguan > 1) || xueli > 2 && (buxiangguan == 3 && xiangguan == 1)) {
+              if (xueli == 2 && (buxiangguan > 3 || xiangguan > 1) || xueli > 2 && (buxiangguan == 3 && xiangguan <= 1)) {
                 //A和BC其中一项匹配 另外一项高于标准
                 gongzi = 1800;
                 xindeng = 4;
@@ -647,23 +670,23 @@
           case "技能工":
             if (nenglipinggu == 2) {
               //合格
-              if (xueli == 1 && xiangguan == 1 && buxiangguan < 3) {
+              if (xueli <= 1 && xiangguan <= 1 && buxiangguan < 3) {
                 //A匹配 BC都不匹配
                 gongzi = 1800;
                 xindeng = 1;
               }
-              if ((xueli == 1 && (xiangguan > 1 || buxiangguan > 2)) || (xueli > 1 && (xiangguan == 1 && buxiangguan < 3))) {
+              if ((xueli <= 1 && (xiangguan > 1 || buxiangguan > 2)) || (xueli > 1 && (xiangguan <= 1 && buxiangguan < 3))) {
                 //A匹配 BC其中一项低于标准
                 gongzi = 1800;
                 xindeng = 2;
               }
-              if (xueli == 2 && buxiangguan == 3 && xiangguan == 1) {
+              if (xueli == 2 && buxiangguan == 3 && xiangguan <= 1) {
                 //ABC都完全匹配
                 gongzi = 1850;
 
                 xindeng = 3;
               }
-              if (xueli == 2 && (buxiangguan > 3 || xiangguan > 1) || xueli > 2 && (buxiangguan == 3 && xiangguan == 1)) {
+              if (xueli == 2 && (buxiangguan > 3 || xiangguan > 1) || xueli > 2 && (buxiangguan == 3 && xiangguan <= 1)) {
                 //A和BC其中一项匹配 另外一项高于标准
                 gongzi = 1900;
                 xindeng = 4;
