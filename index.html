@@ -127,12 +127,12 @@
                     </div>
                   </div>
                   <span class="icon icon-18"></span>
-                  <div class="weui-panel__hd"><span class="weui-icon weui-icon-success"></span>此项综合评估结果</div>
+                  <div class="weui-panel__hd"><span class="weui-icon weui-icon-circle"></span>此项综合评估结果如下</div>
                   <div class="weui-panel__bd">
                     <div class="weui-cells weui-cells_form">
-                      <div class="weui-cell weui-cell_active  weui-cell_select-after">
-                        <div class="weui-cell__hd">
-                          <label for="" class="weui-label">评估结果</label></div>
+                      <div class="weui-cell weui-cell_active weui-cell_select weui-cell_select-after">
+                        <!-- <div class="weui-cell__hd">
+                          <label for="" class="weui-label">评估结果</label></div> -->
                         <div class="weui-cell__bd">
                           <select class="weui-select" disabled name="nenglipinggu" id="nenglipinggu">
                             <option value="" selected disabled style="display: none"></option>
@@ -400,7 +400,9 @@
           var nenglipinggu = $('#nenglipinggu');
           nenglipinggu.val(pinggujieguo);
 
+
           if (pinggujieguo == 1) {
+            $('#nenglipinggu').addClass("red");
             weui.alert("抱歉，没通过面试", {
               title: '提示'
             });
