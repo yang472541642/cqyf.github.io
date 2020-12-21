@@ -424,16 +424,17 @@
           var js_interviewer = $('#js_interviewer').val();
           var js_employee_phone = $('#js_employee_phone').val();
 
-          if (js_employee == '') {
-            weui.alert("请填写面试者姓名", {
-              title: '提示'
-            });
-          }
           if (js_interviewer == '') {
             weui.alert("请填写面试官姓名", {
               title: '提示'
             });
           }
+          if (js_employee == '') {
+            weui.alert("请填写面试者姓名", {
+              title: '提示'
+            });
+          }
+          
           if (js_employee_phone == '') {
             weui.alert("请填写面试者联系电话", {
               title: '提示'
