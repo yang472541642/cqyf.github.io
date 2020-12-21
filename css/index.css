@@ -1,3 +1,23 @@
 .hide {
 	display:none;
 }
+.bc {
+	background-color: #F6A52F;
+	color: #FFFFFF;
+}
+
+.weui-cell {
+	background-color: #F6A52F;
+	color: #FFFFFF;
+}
+.weui-panel {
+	background-color: #F6A52F;
+	color: #FFFFFF;
+}
+.weui-form {
+	background-color: #F6A52F;
+	color: #FFFFFF;
+}
+.weui-form__text-area {
+	
+}
