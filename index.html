@@ -79,7 +79,7 @@
                         <option value="0" selected disabled style="display: none">请选择</option>
                         <option value="店经理">店经理</option>
                         <option value="营业员">营业员</option>
-                        <option value="技能工">技能工</option></select>
+                      </select>
                     </div>
                   </div>
                 </div>
@@ -89,10 +89,10 @@
               <div class="weui-panel__hd">二、测评结果</div>
             <div class="weui-panel__bd">
             <div class="weui-panel">
-              <div class="weui-panel__hd">A、能力评估&技能评估</div>
+              <div class="weui-panel__hd">A、素质评估&专业评估</div>
               <div class="weui-panel__bd">
                 <div class="weui-panel">
-                  <div class="weui-panel__hd">1）能力评估</div>
+                  <div class="weui-panel__hd">1）素质评估</div>
                   <div class="weui-panel__bd">
                     <div class="weui-cells weui-cells_form">
                       <div class="weui-cell weui-cell_active weui-cell_select weui-cell_select-after">
@@ -117,29 +117,21 @@
                             <option value="5">合格</option></select>
                         </div>
                       </div>
-                      <div class="weui-cell weui-cell_active weui-cell_select weui-cell_select-after hide" id="js_luojics">
-                        <div class="weui-cell__hd">
-                          <label for="" class="weui-label">逻辑测试</label></div>
-                        <div class="weui-cell__bd">
-                          <select class="weui-select" name="luojics" id="luojics">
-                            <option value="" selected disabled style="display: none">请选择</option>
-                            <option value="0">不合格</option>
-                            <option value="5">合格</option></select>
-                        </div>
-                      </div>
                     </div>
                   </div>
-                  <div class="weui-panel__hd">2）技能评估</div>
+                  <div class="weui-panel__hd">2）专业评估</div>
                   <div class="weui-panel__bd">
                     <div class="weui-cells weui-cells_form">
                       <div class="weui-cell weui-cell_active weui-cell_select weui-cell_select-after">
                         <div class="weui-cell__hd">
-                          <label for="" class="weui-label">操作测评（现场）</label></div>
+                          <label for="" class="weui-label">营运测评（现场）</label></div>
                         <div class="weui-cell__bd">
                           <select class="weui-select" name="xianchangcp" id="xianchangcp">
                             <option value="" selected disabled style="display: none">请选择</option>
                             <option value="0">不合格</option>
                             <option value="5">合格</option></select>
+                            <option value="10">优良</option></select>
+                            <option value="15">优秀</option></select>
                         </div>
                       </div>
                     </div>
@@ -189,7 +181,7 @@
                 <div class="weui-panel__bd">
                   <div class="weui-cell weui-cell_active weui-cell_select weui-cell_select-after">
                     <div class="weui-cell__hd">
-                      <label for="" class="weui-label">相关行业同岗位工作经验</label></div>
+                      <label for="" class="weui-label">食品快消门店连锁行业同岗位工作经验</label></div>
                     <div class="weui-cell__bd">
                       <select class="weui-select" name="xiangguan" id="xiangguan">
                         <option value="0" selected style="display: none">请选择</option>
@@ -198,7 +190,7 @@
                   </div>
                   <div class="weui-cell weui-cell_active weui-cell_select weui-cell_select-after">
                     <div class="weui-cell__hd">
-                      <label for="" class="weui-label">非相关行业同岗位工作经验</label></div>
+                      <label for="" class="weui-label">非食品快消门店连锁行业同岗位工作经验</label></div>
                     <div class="weui-cell__bd">
                       <select class="weui-select" name="buxiangguan" id="buxiangguan">
                         <option value="0" selected style="display: none">请选择</option>
@@ -301,22 +293,6 @@
             $("#buxiangguan").append('<option value="5">3-4年</option>');
             $("#buxiangguan").append('<option value="6">4年以上</option>');
             break;
-
-          case "技能工":
-            $("#xiangguan").append('<option  value="1">无</option>');
-            $("#xiangguan").append('<option value="2">1年以下</option>');
-            $("#xiangguan").append('<option value="3">1-2年</option>');
-            $("#xiangguan").append('<option value="4">2-3年</option>');
-            $("#xiangguan").append('<option value="5">3-4年</option>');
-            $("#xiangguan").append('<option value="6">4年以上</option>');
-
-            $("#buxiangguan").append('<option  value="1">无</option>');
-            $("#buxiangguan").append('<option value="2">1年以下</option>');
-            $("#buxiangguan").append('<option value="3">1-2年</option>');
-            $("#buxiangguan").append('<option value="4">2-3年</option>');
-            $("#buxiangguan").append('<option value="5">3-4年</option>');
-            $("#buxiangguan").append('<option value="6">4年以上</option>');
-            break;
           }
           computeLevel();
 
@@ -325,7 +301,7 @@
         function emptyPingGuo() {
           $('#mendianms').val("");
           $('#xinggecp').val("");
-          $('#luojics').val("");
+          //$('#luojics').val("");
           $('#xianchangcp').val("");
           $('#nenglipinggu').val("");
         }
@@ -334,7 +310,7 @@
           var zhiwei = $('#zhiwei').val();
           var mendianms = $('#mendianms').val();
           var xinggecp = $('#xinggecp').val();
-          var luojics = $('#luojics').val();
+          //var luojics = $('#luojics').val();
           var xianchangcp = $('#xianchangcp').val();
 
           if (zhiwei == null) {
@@ -356,9 +332,9 @@
           if (xinggecp != null) {
             totalnengli += parseInt(xinggecp);
           }
-          if (luojics != null) {
+          /*if (luojics != null) {
             totalnengli += parseInt(luojics);
-          }
+          }*/
           if (xianchangcp != null) {
             totaljineng += parseInt(xianchangcp);
           }
@@ -372,46 +348,31 @@
           switch (zhiwei) {
           case "店经理":
             total = totalnengli * 0.6 + totaljineng * 0.4;
-            if (total < 11) {
+            if (total < 8) {
               pinggujieguo = 1;
             }
-            if (total >= 11 && total < 14) {
+            if (total >= 8 && total < 13) {
               pinggujieguo = 2;
             }
-            if (total >= 14 && total < 17) {
+            if (total >= 13 && total < 18) {
               pinggujieguo = 3;
             }
-            if (total >= 17) {
+            if (total >= 18) {
               pinggujieguo = 4;
             }
             break;
           case "营业员":
             total = totalnengli * 0.5 + totaljineng * 0.5;
-            if (total < 7.5) {
+            if (total < 8) {
               pinggujieguo = 1;
             }
-            if (total >= 7.5 && total < 10) {
+            if (total >= 8 && total < 13) {
               pinggujieguo = 2;
             }
-            if (total >= 10 && total < 12.5) {
+            if (total >= 13 && total < 18) {
               pinggujieguo = 3;
             }
-            if (total >= 12.5) {
-              pinggujieguo = 4;
-            }
-            break;
-          case "技能工":
-            total = totalnengli * 0.4 + totaljineng * 0.6;
-            if (total < 7) {
-              pinggujieguo = 1;
-            }
-            if (total >= 7 && total < 9) {
-              pinggujieguo = 2;
-            }
-            if (total >= 9 && total < 11) {
-              pinggujieguo = 3;
-            }
-            if (total >= 11) {
+            if (total >= 18) {
               pinggujieguo = 4;
             }
             break;
@@ -522,29 +483,29 @@
               //合格
               if (xueli <= 1 && (xiangguan <= 1 && buxiangguan <= 1)) {
                 //A匹配 BC都不匹配
-                gongzi = 2000;
+                gongzi = 2600;
                 xindeng = 1;
               }
               if ((xueli <= 1 && xiangguan > 1 || buxiangguan > 1) || (xueli > 1 && xiangguan <= 1 && buxiangguan <= 1)) {
                 //A匹配 BC其中一项低于标准
-                gongzi = 2050;
+                gongzi = 2744;
 
                 xindeng = 2;
               }
               if (xueli == 2 && (xiangguan == 2 && buxiangguan <= 2 || xiangguan <= 2 && buxiangguan == 2)) {
                 //ABC都完全匹配
-                gongzi = 2130;
+                gongzi = 2888;
 
                 xindeng = 3;
               }
               if (xueli == 2 && (xiangguan > 2 || buxiangguan > 2) || xueli > 2 && (xiangguan == 2 && buxiangguan <= 2 || xiangguan <= 2 && buxiangguan == 2)) {
                 //A和BC其中一项匹配 另外一项高于标准
-                gongzi = 2210;
+                gongzi = 3032;
                 xindeng = 4;
               }
               if (xueli > 2 && (xiangguan > 2 || buxiangguan > 2)) {
                 //A匹配 BC都高于标准
-                gongzi = 2290;
+                gongzi = 3176;
                 xindeng = 5;
               }
               dengji = 1;
@@ -553,27 +514,27 @@
               //优良
               if (xueli < 3 && (xiangguan < 3 && buxiangguan < 3)) {
                 //A匹配 BC都不匹配
-                gongzi = 2290;
+                gongzi = 3700;
                 xindeng = 1;
               }
               if (xueli < 3 && (xiangguan > 2 || buxiangguan > 2) || (xueli > 2 && xiangguan < 3 && buxiangguan < 3)) {
                 //A匹配 BC其中一项低于标准
-                gongzi = 2370;
+                gongzi = 3844;
                 xindeng = 2;
               }
               if (xueli == 3 && (xiangguan == 3 && buxiangguan <= 3 || xiangguan <= 3 && buxiangguan == 3)) {
                 //ABC都完全匹配
-                gongzi = 2450;
+                gongzi = 3988;
                 xindeng = 3;
               }
               if (xueli == 3 && (xiangguan > 3 || buxiangguan > 3) || xueli > 3 && (xiangguan == 3 && buxiangguan <= 3 || xiangguan <= 3 && buxiangguan == 3)) {
                 //A和BC其中一项匹配 另外一项高于标准
-                gongzi = 2530;
+                gongzi = 4132;
                 xindeng = 4;
               }
               if (xueli > 3 && (xiangguan > 3 || buxiangguan > 3)) {
                 //A匹配 BC都高于标准
-                gongzi = 2610;
+                gongzi = 4276;
                 xindeng = 5;
               }
               dengji = 2;
@@ -582,27 +543,27 @@
               //优秀
               if (xueli < 4 && (xiangguan < 4 && buxiangguan < 4)) {
                 //A匹配 BC都不匹配
-                gongzi = 2610;
+                gongzi = 4800;
                 xindeng = 1;
               }
               if (xueli < 4 && (xiangguan > 3 || buxiangguan > 3) || (xueli > 3 && xiangguan < 4 && buxiangguan < 4)) {
                 //A匹配 BC其中一项低于标准
-                gongzi = 2730;
+                gongzi = 4944;
                 xindeng = 2;
               }
               if (xueli == 4 && (xiangguan == 4 && buxiangguan <= 4 || xiangguan <= 4 && buxiangguan == 4)) {
                 //ABC都完全匹配
-                gongzi = 2850;
+                gongzi = 5088;
                 xindeng = 3;
               }
               if (xueli == 4 && (xiangguan > 4 || buxiangguan > 4) || xueli > 4 && (xiangguan == 4 && buxiangguan <= 4 || xiangguan <= 4 && buxiangguan == 4)) {
                 //A和BC其中一项匹配 另外一项高于标准
-                gongzi = 2970;
+                gongzi = 5232;
                 xindeng = 4;
               }
               if (xueli > 4 && (xiangguan > 4 || buxiangguan > 4)) {
                 //A匹配 BC都高于标准
-                gongzi = 3090;
+                gongzi = 5376;
                 xindeng = 5;
               }
 
@@ -615,28 +576,28 @@
               //合格
               if (xueli <= 1 && xiangguan <= 1 && buxiangguan < 3) {
                 //A匹配 BC都不匹配
-                gongzi = 1700;
+                gongzi = 2300;
                 xindeng = 1;
               }
               if ((xueli <= 1 && (xiangguan > 1 || buxiangguan > 2)) || (xueli > 1 && (xiangguan <= 1 && buxiangguan < 3))) {
                 //A匹配 BC其中一项低于标准
-                gongzi = 1700;
+                gongzi = 2390;
                 xindeng = 2;
               }
               if (xueli == 2 && buxiangguan == 3 && xiangguan <= 1) {
                 //ABC都完全匹配
-                gongzi = 1750;
+                gongzi = 2480;
 
                 xindeng = 3;
               }
               if (xueli == 2 && (buxiangguan > 3 || xiangguan > 1) || xueli > 2 && (buxiangguan == 3 && xiangguan <= 1)) {
                 //A和BC其中一项匹配 另外一项高于标准
-                gongzi = 1800;
+                gongzi = 2570;
                 xindeng = 4;
               }
               if (xueli > 2 && (buxiangguan > 3 || xiangguan > 1)) {
                 //A匹配 BC都高于标准
-                gongzi = 1850;
+                gongzi = 2660;
                 xindeng = 5;
               }
               dengji = 1;
@@ -645,27 +606,27 @@
               //优良
               if (xueli < 2 && xiangguan < 3 && buxiangguan < 4) {
                 //A匹配 BC都不匹配
-                gongzi = 1850;
+                gongzi = 3000;
                 xindeng = 1;
               }
               if ((xueli < 2 && (xiangguan > 2 || buxiangguan > 3)) || (xueli > 1 && xiangguan < 3 && buxiangguan < 4)) {
                 //A匹配 BC其中一项低于标准
-                gongzi = 1850;
+                gongzi = 3090;
                 xindeng = 2;
               }
               if (xueli == 2 && (xiangguan == 3 && buxiangguan <= 4 || xiangguan <= 3 && buxiangguan == 4)) {
                 //ABC都完全匹配
-                gongzi = 1900;
+                gongzi = 3180;
                 xindeng = 3;
               }
               if (xueli == 2 && (xiangguan > 3 || buxiangguan > 4) || xueli > 2 && (xiangguan == 3 && buxiangguan <= 4 || xiangguan <= 3 && buxiangguan == 4)) {
                 //A和BC其中一项匹配 另外一项高于标准
-                gongzi = 1950;
+                gongzi = 3270;
                 xindeng = 4;
               }
               if (xueli > 2 && (xiangguan > 3 || buxiangguan > 4)) {
                 //A匹配 BC都高于标准
-                gongzi = 2000;
+                gongzi = 3360;
                 xindeng = 5;
               }
               dengji = 2;
@@ -674,124 +635,32 @@
               //优秀
               if (xueli < 3 && xiangguan < 4 && buxiangguan < 5) {
                 //A匹配 BC都不匹配
-                gongzi = 2000;
+                gongzi = 3800;
                 xindeng = 1;
               }
               if ((xueli < 3 && (xiangguan > 3 || buxiangguan > 4)) || (xueli > 2 && xiangguan < 4 && buxiangguan < 5)) {
                 //A匹配 BC其中一项低于标准
-                gongzi = 2050;
+                gongzi = 3890;
                 xindeng = 2;
               }
               if (xueli == 3 && (xiangguan == 4 && buxiangguan <= 5 || xiangguan <= 4 && buxiangguan == 5)) {
                 //ABC都完全匹配
-                gongzi = 2130;
+                gongzi = 3980;
                 xindeng = 3;
               }
               if (xueli == 3 && (xiangguan > 4 || buxiangguan > 5) || xueli > 3 && (xiangguan == 4 && buxiangguan <= 5 || xiangguan <= 4 && buxiangguan == 5)) {
                 //A和BC其中一项匹配 另外一项高于标准
-                gongzi = 2210;
+                gongzi = 4070;
                 xindeng = 4;
               }
               if (xueli > 3 && (xiangguan > 4 || buxiangguan > 5)) {
                 //A匹配 BC都高于标准
-                gongzi = 2290;
+                gongzi = 4160;
                 xindeng = 5;
               }
 
               dengji = 3;
             }
-            break;
-          case "技能工":
-            if (nenglipinggu == 2) {
-              //合格
-              if (xueli <= 1 && xiangguan <= 1 && buxiangguan < 3) {
-                //A匹配 BC都不匹配
-                gongzi = 1800;
-                xindeng = 1;
-              }
-              if ((xueli <= 1 && (xiangguan > 1 || buxiangguan > 2)) || (xueli > 1 && (xiangguan <= 1 && buxiangguan < 3))) {
-                //A匹配 BC其中一项低于标准
-                gongzi = 1800;
-                xindeng = 2;
-              }
-              if (xueli == 2 && buxiangguan == 3 && xiangguan <= 1) {
-                //ABC都完全匹配
-                gongzi = 1850;
-
-                xindeng = 3;
-              }
-              if (xueli == 2 && (buxiangguan > 3 || xiangguan > 1) || xueli > 2 && (buxiangguan == 3 && xiangguan <= 1)) {
-                //A和BC其中一项匹配 另外一项高于标准
-                gongzi = 1900;
-                xindeng = 4;
-              }
-              if (xueli > 2 && (buxiangguan > 3 || xiangguan > 1)) {
-                //A匹配 BC都高于标准
-                gongzi = 1950;
-                xindeng = 5;
-              }
-              dengji = 1;
-            }
-            if (nenglipinggu == 3) {
-              //优良
-              if (xueli < 2 && xiangguan < 3 && buxiangguan < 4) {
-                //A匹配 BC都不匹配
-                gongzi = 1950;
-                xindeng = 1;
-              }
-              if ((xueli < 2 && (xiangguan > 2 || buxiangguan > 3)) || (xueli > 1 && xiangguan < 3 && buxiangguan < 4)) {
-                //A匹配 BC其中一项低于标准
-                gongzi = 1950;
-                xindeng = 2;
-              }
-              if (xueli == 2 && (xiangguan == 3 && buxiangguan <= 4 || xiangguan <= 3 && buxiangguan == 4)) {
-                //ABC都完全匹配
-                gongzi = 2000;
-                xindeng = 3;
-              }
-              if (xueli == 2 && (xiangguan > 3 || buxiangguan > 4) || xueli > 2 && (xiangguan == 3 && buxiangguan <= 4 || xiangguan <= 3 && buxiangguan == 4)) {
-                //A和BC其中一项匹配 另外一项高于标准
-                gongzi = 2050;
-                xindeng = 4;
-              }
-              if (xueli > 2 && (xiangguan > 3 || buxiangguan > 4)) {
-                //A匹配 BC都高于标准
-                gongzi = 2130;
-                xindeng = 5;
-              }
-              dengji = 2;
-            }
-            if (nenglipinggu == 4) {
-              //优秀
-              if (xueli < 3 && xiangguan < 4 && buxiangguan < 5) {
-                //A匹配 BC都不匹配
-                gongzi = 2130;
-                xindeng = 1;
-              }
-              if ((xueli < 3 && (xiangguan > 3 || buxiangguan > 4)) || (xueli > 2 && xiangguan < 4 && buxiangguan < 5)) {
-                //A匹配 BC其中一项低于标准
-                gongzi = 2210;
-                xindeng = 2;
-              }
-              if (xueli == 3 && (xiangguan == 4 && buxiangguan <= 5 || xiangguan <= 4 && buxiangguan == 5)) {
-                //ABC都完全匹配
-                gongzi = 2290;
-                xindeng = 3;
-              }
-              if (xueli == 3 && (xiangguan > 4 || buxiangguan > 5) || xueli > 3 && (xiangguan == 4 && buxiangguan <= 5 || xiangguan <= 4 && buxiangguan == 5)) {
-                //A和BC其中一项匹配 另外一项高于标准
-                gongzi = 2370;
-                xindeng = 4;
-              }
-              if (xueli > 3 && (xiangguan > 4 || buxiangguan > 5)) {
-                //A匹配 BC都高于标准
-                gongzi = 2450;
-                xindeng = 5;
-              }
-
-              dengji = 3;
-            }
-
             break;
           }
 
